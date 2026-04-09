@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Vinob Chander R — Academic Portfolio</title>
+<style>
+  :root {
+    --bg: #1a1a2e;
+    --bg-card: #16213e;
+    --bg-accent: #0f3460;
+    --text: #e0e0e0;
+    --text-muted: #a0a0b8;
+    --accent: #e09145;
+    --accent-light: #f0b27a;
+    --border: #2a2a4a;
+    --tag-bg: #0f3460;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(26,26,46,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 1rem;
+    display: flex; justify-content: center; gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 0.8rem; letter-spacing: 0.05em;
+    text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: color 0.3s;
+  }
+  nav a:hover, nav a:focus { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 4rem 1.5rem 3rem;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--bg-card) 50%, var(--bg-accent) 100%);
+    border-bottom: 3px solid var(--accent);
+  }
+  .hero h1 {
+    font-size: 2.6rem;
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.3rem;
+  }
+  .hero .subtitle {
+    font-size: 1.1rem;
+    color: var(--accent-light);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .hero .affiliation {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero .contact-info {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin-bottom: 0.3rem;
+  }
+  .hero .contact-info a { color: var(--text-muted); text-decoration: none; }
+  .hero .contact-info a:hover { color: var(--accent); }
+  .hero-links {
+    display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap;
+    margin-top: 1.2rem;
+  }
+  .hero-links a {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    color: var(--text); text-decoration: none;
+    font-size: 0.82rem; font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .hero-links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(224,145,69,0.08);
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* SECTIONS */
+  section { padding: 2.5rem 0 2rem; }
+  section + section { border-top: 1px solid var(--border); }
+  .section-title {
+    font-size: 1.3rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .sub-title {
+    font-size: 1.05rem;
+    color: var(--accent-light);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 1.5rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ABOUT */
+  .about p { margin-bottom: 1rem; text-align: justify; }
+
+  /* CARDS */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .card h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.2rem;
+  }
+  .card .meta {
+    font-size: 0.82rem;
+    color: var(--accent-light);
+    font-style: italic;
+    margin-bottom: 0.3rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .card p, .card ul {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+  .card ul { padding-left: 1.2rem; }
+  .card li { margin-bottom: 0.15rem; }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+  }
+  .edu-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .edu-item .degree {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+  }
+  .edu-item .institution { color: #fff; font-size: 0.9rem; }
+  .edu-item .year { color: var(--text-muted); font-size: 0.82rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .edu-item .note { color: var(--accent-light); font-size: 0.82rem; font-style: italic; margin-top: 0.2rem; }
+
+  /* TAGS */
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    border: 1px solid var(--border);
+  }
+
+  /* PUBLICATIONS */
+  .pub-item {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+  }
+  .pub-item:hover { border-left-color: var(--accent); }
+  .pub-item .pub-title {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .pub-item .pub-venue {
+    color: var(--accent-light);
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+  .pub-item .pub-meta {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .pub-item .pub-index {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 0.68rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 2px;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin-left: 0.2rem;
+  }
+
+  /* SKILLS GRID */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .skill-group h4 {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  /* HIGHLIGHT STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .stat {
+    text-align: center;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .stat .num {
+    font-size: 1.8rem;
+    color: var(--accent);
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .stat .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* LISTS */
+  .detail-list { list-style: none; }
+  .detail-list li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .detail-list li:last-child { border-bottom: none; }
+  .detail-list .item-name { color: #fff; font-weight: bold; }
+  .detail-list .item-detail { color: var(--text-muted); font-size: 0.82rem; }
+
+  /* COMPACT LIST */
+  .compact-list {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .compact-list li { margin-bottom: 0.3rem; }
+  .compact-list strong { color: #fff; }
+
+  .bullet-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .bullet-list li { margin-bottom: 0.3rem; }
+  .bullet-list strong { color: #fff; }
+
+  /* PROJECT HIGHLIGHT */
+  .project-highlight {
+    background: linear-gradient(135deg, var(--bg-accent), var(--bg-card));
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .project-highlight h3 {
+    color: var(--accent);
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+  .project-highlight p {
+    font-size: 0.88rem;
+    color: var(--text);
+  }
+
+  /* LINK TAG */
+  a.tag-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.3s, border-color 0.3s;
+  }
+  a.tag-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.8rem; }
+    .hero .subtitle { font-size: 0.95rem; }
+    nav { gap: 0.6rem; }
+    nav a { font-size: 0.72rem; }
+    .section-title { font-size: 1.1rem; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 0.8rem; }
+    .edu-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#publications">Publications</a>
+  <a href="#projects">Projects</a>
+  <a href="#curriculum">Curriculum</a>
+  <a href="#workshops">Workshops</a>
+  <a href="#awards">Awards</a>
+  <a href="#certifications">Certifications</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <h1>Dr. Vinob Chander R</h1>
+  <div class="subtitle">Associate Professor &amp; Assistant Director (i/c) &mdash; Academics</div>
+  <div class="affiliation">Department of Computer Science &amp; Engineering, Amity University Bengaluru, India</div>
+  <div class="contact-info">
+    <a href="mailto:vinobchanderr@gmail.com">vinobchanderr@gmail.com</a> &middot;
+    <a href="mailto:abpv3121@gmail.com">abpv3121@gmail.com</a>
+  </div>
+  <div class="contact-info">+91-8511120633 &middot; +91-9566101580</div>
+  <div class="hero-links">
+    <a href="https://www.linkedin.com/in/vinobchander/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/vinobc" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://smartlylearn.in/" target="_blank" rel="noopener">SmartlyLearn</a>
+    <a href="https://orcid.org/0000-0003-2377-9304" target="_blank" rel="noopener">ORCID</a>
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=55608038000" target="_blank" rel="noopener">Scopus</a>
+    <a href="https://www.webofscience.com/wos/author/record/ABC-3679-2021" target="_blank" rel="noopener">Web of Science</a>
+    <a href="https://shorturl.at/nqwNS" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://pulsehub-intranet.vercel.app/" target="_blank" rel="noopener">PulseHub</a>
+    <a href="https://flourishing-snickerdoodle-5adaed.netlify.app/" target="_blank" rel="noopener">Game</a>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- STATS -->
+  <section>
+    <div class="stats">
+      <div class="stat"><div class="num">21+</div><div class="label">Years Experience</div></div>
+      <div class="stat"><div class="num">15</div><div class="label">Publications</div></div>
+      <div class="stat"><div class="num">23+</div><div class="label">Courses Designed</div></div>
+      <div class="stat"><div class="num">42</div><div class="label">GitHub Repos</div></div>
+      <div class="stat"><div class="num">15+</div><div class="label">Projects Supervised</div></div>
+      <div class="stat"><div class="num">59+</div><div class="label">Talks &amp; Workshops</div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-title">About</h2>
+    <div class="about">
+      <p>
+        Dr. Vinob Chander R is an Associate Professor in the Department of Computer Science and Engineering and
+        Assistant Director i/c (Academics) at Amity University Bengaluru. He holds a Ph.D. in IoT from Anna University, Chennai,
+        where his doctoral research addressed application interoperability for the Internet of Things. His M.E. in Computer Science and Engineering
+        (First Class with Distinction) is from Vinayaka Missions Research Foundation, and his B.E. in Computer Science and Engineering from Gulbarga University.
+      </p>
+      <p>
+        With over 21 years of professional experience, Dr. Chander has built a career that bridges academia and industry.
+        He has held faculty positions at SSN College of Engineering (Chennai), Parul University (Gujarat), and SNIST (Hyderabad),
+        contributing to teaching, research, curriculum development, and institutional administration. In industry, he served as a
+        Senior Manager at HCL Technologies, designing corporate training programs and developing technical solutions for clients
+        including Robert Bosch and Sony.
+      </p>
+      <p>
+        As Assistant Director i/c (Academics), he is responsible for designing the university's academic calendar and
+        independently designs, develops, deploys, and manages the <strong>SCFC (Student Centric Flexible Curriculum) LMS</strong> &mdash; a comprehensive
+        learning management system in active use at the university, with requirements gathered and refined in collaboration with the Vice Chancellor of Amity University Bengaluru, following an Agile/DevOps approach. Built from the ground up with Node.js, Express.js, and PostgreSQL,
+        the system spans 24 modules and 160+ REST API endpoints covering timetable management, course registration, faculty allocation,
+        attendance, marks, on-duty tracking, and reporting. It features a sophisticated multi-constraint conflict detection engine for
+        scheduling across faculty, venues, and student groups, dual JWT-based authentication for staff and students, and is optimized
+        to serve 2,000+ concurrent users with connection pooling tuned for high availability.
+      </p>
+      <p>
+        His research focuses on IoT interoperability, RESTful service architectures, Generative AI, Cloud, DevOps, and full-stack web development.
+        He has published in Elsevier, Springer, and IEEE proceedings, and presented at IEEE DCOSS (Washington, D.C.),
+        IMECS (Hong Kong), and IEEE CONECCT (Bangalore). He is proficient in Python, JavaScript, C, Java, React, Next.js,
+        Django, and Node.js, and experienced with IoT platforms including STM32, Arduino, ESP32, and Raspberry Pi.
+        He is a life member of ISTE and IETE, a member of IAENG, and winner of the Holistic Webdev Challenge and the Great Indian HP Code-Off.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="section-title">Work Experience (9 Positions)</h2>
+
+    <div class="card">
+      <h3>1. Associate Professor &amp; Assistant Director (i/c) &mdash; Academics</h3>
+      <div class="meta">Amity University Bengaluru, Bengaluru &middot; May 2024 &ndash; Present</div>
+      <ul>
+        <li>Training</li>
+        <li>Custom LMS development, deployment, and management in an Agile way</li>
+        <li>Academic Calendar design</li>
+        <li>Member &mdash; BoS in Computer Science, Engineering &amp; Technology</li>
+        <li>Member &mdash; BoS in Information Technology &amp; Computer Applications</li>
+        <li>Member &mdash; Anti Ragging</li>
+        <li>Member &mdash; Examination Discipline Committee</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2. Associate Professor &amp; Development Officer</h3>
+      <div class="meta">Parul University, Gujarat &middot; May 2023 &ndash; March 2024</div>
+      <p>Training, Interdisciplinary Programmes Coordinator, Curriculum Development, Research</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Senior Manager</h3>
+      <div class="meta">HCL Tech., Chennai &middot; May 2022 &ndash; March 2023</div>
+      <p>Building &amp; Managing technical solutions, Corporate &amp; Enterprise training, Software Development</p>
+    </div>
+
+    <div class="card">
+      <h3>4. Assistant Professor</h3>
+      <div class="meta">SSN College of Engineering, Chennai &middot; December 2010 &ndash; April 2022</div>
+      <p>Teaching, DevOps, Research</p>
+    </div>
+
+    <div class="card">
+      <h3>5. Associate Professor</h3>
+      <div class="meta">SNIST, Hyderabad &middot; May 2008 &ndash; December 2010</div>
+      <p>Teaching, Software Development</p>
+    </div>
+
+    <div class="card">
+      <h3>6. Assistant Professor &amp; HoD I/C</h3>
+      <div class="meta">METS, Thrissur &middot; May 2006 &ndash; April 2008</div>
+      <p>Teaching, Administration</p>
+    </div>
+
+    <div class="card">
+      <h3>7. Lecturer</h3>
+      <div class="meta">SREC, Coimbatore &middot; May 2003 &ndash; April 2004</div>
+      <p>Teaching, Development</p>
+    </div>
+
+    <div class="card">
+      <h3>8. Lecturer</h3>
+      <div class="meta">SKCET, Coimbatore &middot; October 2000 &ndash; April 2003</div>
+      <p>Teaching, Development, Warden</p>
+    </div>
+
+    <div class="card">
+      <h3>9. Developer</h3>
+      <div class="meta">Federal Techno Pvt. Ltd, Bengaluru &middot; January 2000 &ndash; September 2000</div>
+      <p>Training, Development</p>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <div class="degree">Ph.D. (IoT)</div>
+        <div class="institution">Anna University, Chennai, India</div>
+        <div class="year">June 2020</div>
+        <div class="note">"Application Interoperability for the Internet of Things"</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">M.E. (CSE)</div>
+        <div class="institution">Vinayaka Missions Research Foundation, Salem, Tamil Nadu</div>
+        <div class="year">June 2006</div>
+        <div class="note">First Class with Distinction</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">B.E. (CSE)</div>
+        <div class="institution">Gulbarga University, Karnataka</div>
+        <div class="year">September 1999</div>
+        <div class="note">First Class</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">XII (CBSE-PCMB)</div>
+        <div class="institution">CBSE</div>
+        <div class="year">1994</div>
+        <div class="note">71%</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">X (CBSE)</div>
+        <div class="institution">CBSE</div>
+        <div class="year">1992</div>
+        <div class="note">71%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <div class="tags">
+          <span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span>
+          <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span>
+          <span class="tag">Java</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Frameworks / Libraries</h4>
+        <div class="tags">
+          <span class="tag">Django</span><span class="tag">Flask</span><span class="tag">Node</span>
+          <span class="tag">Express</span><span class="tag">React</span><span class="tag">Vue</span>
+          <span class="tag">Next</span><span class="tag">Angular</span><span class="tag">Prisma</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Data / ML Libraries</h4>
+        <div class="tags">
+          <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+          <span class="tag">Seaborn</span><span class="tag">Bokeh</span><span class="tag">Scikit-learn</span>
+          <span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Keras</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Databases</h4>
+        <div class="tags">
+          <span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>IoT / Embedded</h4>
+        <div class="tags">
+          <span class="tag">STM32F4xxxx</span><span class="tag">Arduino UNO</span><span class="tag">ESP32 Dev Kit V1</span>
+          <span class="tag">Arduino YUN</span><span class="tag">Raspberry Pi</span><span class="tag">Chip</span>
+          <span class="tag">SensorTag</span><span class="tag">Zolertia Z1</span><span class="tag">MTM-CM5000-MSP</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>IDEs / Tools</h4>
+        <div class="tags">
+          <span class="tag">VS Code</span><span class="tag">STM32CubeIDE</span><span class="tag">Sublime Text</span>
+          <span class="tag">Jupyter Notebooks</span><span class="tag">Google Colab</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>LMS / ERP</h4>
+        <div class="tags">
+          <span class="tag">Moodle</span><span class="tag">Canvas</span><span class="tag">ERPNext</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>OS</h4>
+        <div class="tags">
+          <span class="tag">Mac OS X</span><span class="tag">Ubuntu</span><span class="tag">Windows</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>SVC / Office</h4>
+        <div class="tags">
+          <span class="tag">GitHub</span><span class="tag">Google Workspace</span><span class="tag">Keynote</span>
+          <span class="tag">Pages</span><span class="tag">Number</span><span class="tag">Zoom</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2 class="section-title">Publications (15 Total)</h2>
+
+    <h3 class="sub-title">International Journals (6)</h3>
+
+    <div class="pub-item">
+      <div class="pub-title">RESTful Architecture for Achieving Syntactic Interoperability in IoT Systems</div>
+      <div class="pub-venue">Springer Nature Link &mdash; Communications in Computer and Information Science (CCIS, vol. 2368), 12 Feb 2025, pp 20&ndash;39</div>
+      <div class="pub-meta">Vinob Chander R, Saswati Mukherjee, Malathy E.M. <span class="pub-index">Springer</span></div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">An Applications Interoperability Model for Heterogeneous Internet of Things Environments</div>
+      <div class="pub-venue">Computers and Electrical Engineering, Vol. 64, pp. 163&ndash;172, Nov 2017</div>
+      <div class="pub-meta">R. Vinob Chander, Saswati Mukherjee, Susan Elias <span class="pub-index">Elsevier</span> <span class="pub-index">Scopus</span> <span class="pub-index">WoS</span></div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">Cloud Based Fuzzy Healthcare System</div>
+      <div class="pub-venue">2nd Intl. Symposium on Big Data and Cloud Computing, Procedia Computer Science, Vol. 50, pp. 143&ndash;148, 2015</div>
+      <div class="pub-meta">Sundharakumar KB, Dhivya S, Mohanavalli, R. Vinob Chander <span class="pub-index">Elsevier</span> <span class="pub-index">Scopus</span> <span class="pub-index">WoS</span></div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">A Service Oriented Interoperable Architecture for IoT Applications</div>
+      <div class="pub-venue">Intl. Journal of Applied Engineering and Research, Vol. 10, No. 34, 2015, pp 27301&ndash;27307</div>
+      <div class="pub-meta">R. Vinob Chander, Susan Elias <span class="pub-index">Research India</span> <span class="pub-index">Scopus</span></div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">Novel Ubiquitous Interoperable Context-aware Smart Environments through Web Services</div>
+      <div class="pub-venue">Lecture Notes in Engineering and Computer Science, IMECS 2012, Hong Kong, pp 646&ndash;650</div>
+      <div class="pub-meta">R. Vinob Chander <span class="pub-index">IAENG</span> <span class="pub-index">Scopus</span> <span class="pub-index">WoS</span></div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">An Improved Object Interaction Framework for Dynamic Collaborative Virtual Environments</div>
+      <div class="pub-venue">Intl. Journal for Computer Science and Network Security, Vol.10, No.9, Sep 2010, pp 91&ndash;95</div>
+      <div class="pub-meta">R. Vinob Chander <span class="pub-index">WoS</span> <span class="pub-index">Google Scholar</span></div>
+    </div>
+
+    <h3 class="sub-title">International Conferences (7)</h3>
+
+    <div class="pub-item">
+      <div class="pub-title">RESTful Architecture for Achieving Syntactic Interoperability in IoT Systems</div>
+      <div class="pub-venue">6th Intl. Conf. on Computational Intelligence in Communications, and Business Analytics, NIT Patna, 23&ndash;25 Jan 2024</div>
+      <div class="pub-meta">R. Vinob Chander, Saswati Mukherjee, Malathy E.M.</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">Web Services for the Internet of Things &mdash; A Feasibility Study</div>
+      <div class="pub-venue">12th Intl. Conf. on Distributed Computing in Sensor Systems (DCOSS), Washington, D.C., USA, 26&ndash;28 May 2016</div>
+      <div class="pub-meta">R. Vinob Chander <span class="pub-index">IEEE</span> <span class="pub-index">Scopus</span> <span class="pub-index">WoS</span></div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">A Smarter Toll Gate based on Web of Things</div>
+      <div class="pub-venue">2013 IEEE CONECCT, IEEE Bangalore Section World Trade Center, 17&ndash;19 Jan 2013</div>
+      <div class="pub-meta">Preethi Rajasekaran, Ragavi Pala Janardhan, R. Vinob Chander <span class="pub-index">Scopus</span> <span class="pub-index">WoS</span></div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">A Rest Based Design for Web of Things in Smart Environments</div>
+      <div class="pub-venue">2nd IEEE Intl. Conf. on Parallel, Distributed and Grid Computing (PDGC), Shimla, 6&ndash;8 Dec 2012</div>
+      <div class="pub-meta">R. Vinob Chander, Susan Elias, Subramanian Shivasankar, Manoj P. <span class="pub-index">Scopus</span> <span class="pub-index">WoS</span></div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">Rich Internet Applications &ndash; Challenges and Opportunities for the Enterprise</div>
+      <div class="pub-venue">Intl. Conference ITECH &ndash; 2009, AOCE, Pune, 4&ndash;5 Mar 2009</div>
+      <div class="pub-meta">R. Vinob Chander</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">Web Services &ndash; Glassfish's Future in the Vendor's Battlefield</div>
+      <div class="pub-venue">Intl. Conf. on Systemics, Cybernetics and Informatics &ndash; 2008, Hyderabad, Jan 2&ndash;5, 2008</div>
+      <div class="pub-meta">R. Vinob Chander, N. Suresh Rao</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">A Prelude to Study on Computer Viruses</div>
+      <div class="pub-venue">Intl. Conf. on Systemics, Cybernetics and Informatics &ndash; 2008, Hyderabad, Jan 2&ndash;5, 2008</div>
+      <div class="pub-meta">N. Suresh Rao, R. Vinob Chander, M. Suneetha</div>
+    </div>
+
+    <h3 class="sub-title">National Conferences (2)</h3>
+
+    <div class="pub-item">
+      <div class="pub-title">Automated Intrusion Detection System</div>
+      <div class="pub-venue">National Conf. on Emerging Trends in Information Technology, Hyderabad, pp 122&ndash;125, Jul 3&ndash;4, 2009</div>
+      <div class="pub-meta">J. Akhilesh, R. Vinob Chander</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">Reconfiguration Capabilities into an Established Component Management Framework</div>
+      <div class="pub-venue">National Conf. on Recent Trends in Advanced Computing &ndash; 2005, Coimbatore, pp 238&ndash;243, Oct 6, 2005</div>
+      <div class="pub-meta">Shanmugasundaram S, R. Vinob Chander</div>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP PROJECT & ALL PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <h3 class="sub-title">Flagship: SCFC LMS</h3>
+    <div class="project-highlight">
+      <h3>SCFC LMS &mdash; Student Centric Flexible Curriculum</h3>
+      <p>
+        A comprehensive institutional learning management system independently designed, developed, deployed, and managed, with requirements discussed and refined in collaboration with the Vice Chancellor of AUB, following an Agile/DevOps workflow.
+        Built with <strong>Node.js, Express.js, and PostgreSQL</strong>, spanning <strong>24 modules</strong> and
+        <strong>160+ REST API endpoints</strong> covering timetable management with multi-constraint conflict detection,
+        course registration, faculty allocation, attendance, marks, on-duty tracking, and reporting.
+        Features dual JWT authentication and is optimized for <strong>2,000+ concurrent users</strong> with connection pooling tuned for high availability.
+      </p>
+      <p style="margin-top:0.6rem; font-size:0.85rem; color:var(--text-muted);">
+        <strong style="color:#fff;">GitHub:</strong> <a href="https://github.com/vinobc/scfc-erp" target="_blank" rel="noopener" style="color:var(--accent);">vinobc/scfc-erp</a> &nbsp;&middot;&nbsp;
+        <strong style="color:#fff;">24 Controllers:</strong> attendance, auth, course-registration, course-withdrawal, course, faculty-allocation, faculty, marks, od (on-duty), program, project-allocation, reports, school, semester-slot-config, semester, slot-conflict, slot, staff, student-auth, student, system-config, timetable-coordinator, user, venue
+      </p>
+      <div class="tags" style="margin-top:0.6rem;">
+        <span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">PostgreSQL</span>
+        <span class="tag">REST API</span><span class="tag">JWT (bcrypt)</span><span class="tag">Helmet</span>
+        <span class="tag">Multer</span><span class="tag">XLSX</span><span class="tag">CORS</span>
+        <span class="tag">24 Modules</span><span class="tag">160+ Endpoints</span><span class="tag">Nodemon</span>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Repos &amp; Projects Overview</h3>
+    <ul class="bullet-list">
+      <li>Corporate Capstone Projects: 4</li>
+      <li>GitHub Repos: 42 (public)</li>
+      <li>Internal Projects: 5+</li>
+      <li>Personal Projects: 2</li>
+      <li>IFFP: 4 (2.0L, 1.8L Rs, 2.3L Rs, 3.5L)</li>
+      <li>IFSP: 1 (12,000 Rs)</li>
+      <li>UG: 10+</li>
+      <li>PG: 5+</li>
+    </ul>
+
+    <h3 class="sub-title">Key Projects</h3>
+    <ol class="compact-list">
+      <li><strong>GitHub Repos</strong> &ndash; 25+ at github.com/vinobc, Type: s/w projects &amp; training materials, Status: Ongoing</li>
+      <li><strong>3 Internal Data Science Capstone Projects</strong>, 2022, Internal Apps @ HCL, Completed</li>
+      <li><strong>CBCS Based Course Registration App</strong>, R. Vinob Chander, Internal App @ SSN, Completed 11.07.2021</li>
+      <li><strong>SSN - neo (Know Each Other)</strong>, R. Vinob Chander, Internal App @ SSN, Completed 27.06.2021</li>
+      <li><strong>Academic ERP</strong>, R. Vinob Chander, Internal App @ SSN, Completed 2017&ndash;2020</li>
+      <li><strong>Personal Website/s</strong>, R. Vinob Chander, Personal, Completed 2020</li>
+      <li><strong>Ambient assisted dementia care through smart home with activity recognition, abnormality detection and decision support system using AI and ML technique</strong>, Pi &amp; Co-Pi: Dr. K.S. Gayathri (IT), Mr. R. Vinob Chander (IT), Internal Funded Faculty Project, SSN, Sanctioned 16.12.2021, Budget: 2.0 lakhs, Completed</li>
+      <li><strong>Developing self-access resource module/courseware using TED talks for enhancing presentation skills</strong>, Pi &amp; Co-Pi: Dr. Cherry Mathew Philipose, Dr. Martha Karunakar, Mr. R. Vinob Chander, Internal Funded Faculty Project, SSN, Sanctioned 24.12.2020, Budget: 1.80 lakhs, Completed</li>
+      <li><strong>Gate Pass Automation</strong>, Students: B. Sandhya, P. Chalini, Project Guides: R. Vinob Chander, Cherry Mathew Philipose, Internal Funded Student Projects, SSN, Sanctioned 10.02.2020, Budget: 12,000 Rs, Completed</li>
+      <li><strong>neXTGeneration Learning and resource Handling</strong>, Pi: K. Kabilan, R. Vinob Chander, Dr. E. M. Malathy, Internal Funded Faculty Projects, SSN, Sanctioned 14.12.2019, Budget: 2.3 lakhs, Completed</li>
+      <li><strong>Being Smarter with Smart Objects</strong>, Pi: R. Vinob Chander, Internal Funded Faculty Projects, SSN, Sanctioned 06.11.2014, Budget: 3.5 lakhs, Completed</li>
+    </ol>
+
+    <h3 class="sub-title">Corporate Capstone Projects</h3>
+    <ol class="compact-list">
+      <li><strong>Reusable Assessment Model</strong> &ndash; 2022, HCL, Developer, Contributor, Mentor</li>
+      <li><strong>iRes (Smart Resume Analyzer)</strong> &ndash; 2023, HCL, Developer, Contributor, Mentor</li>
+      <li><strong>iPlag (Smart Plagiarism Reports Analyzer)</strong> &ndash; 2022, HCL, Developer, Contributor, Mentor</li>
+      <li><strong>Smart Home Automation (UI with VoltMX)</strong> &ndash; 2022, HCL, Developer, Contributor</li>
+    </ol>
+
+    <h3 class="sub-title">Ph.D. Guidance</h3>
+    <ol class="compact-list">
+      <li>Climate-Savvy Irrigation: Maximizing Resource Efficiency in Smart Farming: 2023</li>
+    </ol>
+
+    <h3 class="sub-title">UG Projects Supervised</h3>
+    <ol class="compact-list">
+      <li>Detection Of COVI19 Using Lung Images &ndash; 2023</li>
+      <li>Smart College Selection System: An AI Driven Hybrid Approach &ndash; 2023</li>
+      <li>AI-Enhanced Custom Clothing Design Revolutionizing Personalized Fashion &ndash; 2023</li>
+      <li>Smart City Intra-Transit System &ndash; 2022</li>
+      <li>Voice Based Virtual Assistant for Windows &ndash; 2022</li>
+      <li>An Intelligent System to Detect Phishing Domains with AI/ML &ndash; 2021</li>
+      <li>Music Recommendation System using Face Recognition &ndash; 2020</li>
+      <li>Dynamic Pricing of Products Based on Visual Quality and Other Generic E-Commerce Factors &ndash; 2019</li>
+      <li>Semantic Interoperability in IoT &ndash; 2018</li>
+      <li>Mashups in IoT for Agriculture &ndash; 2018</li>
+      <li>Dynamic Record Management &ndash; 2018</li>
+      <li>Smart India Hackathon "TRICODERS" &ndash; 2017</li>
+      <li>Chennai Tourism Mobile Application &ndash; 2014</li>
+    </ol>
+
+    <h3 class="sub-title">PG Projects Supervised</h3>
+    <ol class="compact-list">
+      <li>Predicting churn in the telecommunication industry by Neural Network Approach: 2023</li>
+      <li>Twitter Sentiment Analysis Using Supervised Machine Learning Techniques: 2016</li>
+      <li>VOC - Monitoring System Based on Zigbee Wireless Sensor Network: 2016</li>
+      <li>Indoor Environment Monitoring System for Gas and Temperature: 2015</li>
+      <li>A Smart Fuzzy Based Health Care System: 2015</li>
+    </ol>
+
+    <h3 class="sub-title">GitHub Repos (42 Public &mdash; <a href="https://github.com/vinobc" target="_blank" rel="noopener" style="color:var(--accent);">github.com/vinobc</a>)</h3>
+    <ol class="compact-list">
+      <li><strong>scfc-erp</strong> &mdash; SCFC LMS academic management system (JavaScript/Node.js, 24 modules)</li>
+      <li><strong>pulsehub-intranet</strong> &mdash; Modern intranet homepage; React TypeScript PWA with real-time collaboration and gamification (TypeScript)</li>
+      <li><strong>mms_prod</strong> &mdash; Marks Management System &ndash; production (TypeScript)</li>
+      <li><strong>marks_management_app</strong> &mdash; Marks Management Application (TypeScript)</li>
+      <li><strong>mms</strong> &mdash; Marks Management System (TypeScript)</li>
+      <li><strong>course-plan-app</strong> &mdash; Course Plan Application (JavaScript)</li>
+      <li><strong>daily-learning-nuggets</strong> &mdash; Daily learning nuggets</li>
+      <li><strong>my-js-project</strong> &mdash; JavaScript project (JavaScript)</li>
+      <li><strong>Fit360</strong> &mdash; Prototype for the Fit360 Virtual Try-On App (JavaScript)</li>
+      <li><strong>Python</strong> &mdash; Python course materials (Python)</li>
+      <li><strong>C</strong> &mdash; C programming course materials (C)</li>
+      <li><strong>CPP</strong> &mdash; C++ course materials (C++)</li>
+      <li><strong>JS</strong> &mdash; JavaScript course materials (HTML)</li>
+      <li><strong>Node</strong> &mdash; Node.js course materials (JavaScript)</li>
+      <li><strong>Arduino</strong> &mdash; Arduino / IoT projects (C++)</li>
+      <li><strong>Java</strong> &mdash; Java course materials (Java)</li>
+      <li><strong>codespaces</strong> &mdash; GitHub Codespaces</li>
+      <li><strong>prisma-webinar</strong> &mdash; Webinar on "Using Prisma for Node TypeScript Projects"</li>
+      <li><strong>vinobc</strong> &mdash; GitHub profile page</li>
+      <li><strong>facojem</strong> &mdash; Web project (CSS)</li>
+      <li><strong>ssit-ssn</strong> &mdash; CBCS Based Course Registration (React &amp; Firebase)</li>
+      <li><strong>AWT</strong> &mdash; Code and notes for "Advanced Web Technologies" (Java/HTML)</li>
+      <li><strong>CNS</strong> &mdash; Lecture notes for "Computers and Network Security"</li>
+      <li><strong>ssncoe</strong> &mdash; Custom ssn-controller of examinations module deployed atop ERPNext (JavaScript)</li>
+      <li><strong>travis-test</strong> &mdash; Travis CI test (JavaScript)</li>
+      <li><strong>UGE1176</strong> &mdash; Course "Fundamentals of C Programming" (Python)</li>
+      <li><strong>UIT1201</strong> &mdash; Course materials</li>
+      <li><strong>Meeting</strong> &mdash; Log Minutes of a Meeting &ndash; custom module deployed atop ERPNext (Python)</li>
+      <li><strong>Department_Library</strong> &mdash; Manage Internal Department's Library &ndash; custom ERPNext module (Python)</li>
+      <li><strong>ssn-iam-repo</strong> &mdash; SSN Internal Assessment Marks app (HTML)</li>
+      <li><strong>01PlayServicesSetup</strong> &mdash; Android Play Services setup for Lab Course "Mobile Application Development" (Java)</li>
+      <li><strong>UITest</strong> &mdash; Android UI Test for Lab Course "Mobile Application Development" (Java)</li>
+      <li><strong>DevelopmentWithJava</strong> &mdash; Android Development with Java for Lab Course (Java)</li>
+      <li><strong>HelloAndroid</strong> &mdash; Hello Android for Lab Course "Mobile Application Development" (Java)</li>
+      <li><strong>WeatherStation</strong> &mdash; IoT based Weather Web Application (Python)</li>
+      <li><strong>parkit</strong> &mdash; RPMS &ndash; Real Time Parking Management System (Java)</li>
+      <li><strong>DiseaseDetection</strong> &mdash; Disease Detection for "Big Data Analysis" course (Java)</li>
+      <li><strong>HelloWorld</strong> &mdash; Hello World (Java)</li>
+      <li><strong>WCT1</strong> &mdash; Web Computing Technologies (Java)</li>
+      <li><strong>first_ror_app</strong> &mdash; First Ruby on Rails app (Ruby)</li>
+      <li><strong>second_ror_app</strong> &mdash; Dynamic RoR demo application (Ruby)</li>
+      <li><strong>third_ror_app</strong> &mdash; RoR application 3 (Ruby)</li>
+    </ol>
+  </section>
+
+  <!-- CURRICULUM DEVELOPMENT -->
+  <section id="curriculum">
+    <h2 class="section-title">Curriculum Development</h2>
+
+    <h3 class="sub-title">Corporate / Academia Course TOCs / Blueprints</h3>
+    <ol class="compact-list">
+      <li><strong>"Embedded &amp; Automotive"</strong>, HCL, D4X, YRSK, VAct, Robert Bosch, 2022&ndash;23</li>
+      <li><strong>"Linux Kernel and System software Engineer"</strong>, HCL, Sony, 2022</li>
+      <li><strong>"Embedded and IoT Developer"</strong>, HCL, Cranes Varsity, 2022</li>
+      <li><strong>"Embedded and IoT Tester"</strong>, HCL, Cranes Varsity, 2022</li>
+      <li><strong>"VLSI Design and Verification"</strong>, HCL, 2022</li>
+      <li><strong>"AR/VR Designer"</strong>, HCL, 2022</li>
+      <li><strong>"Data Science with Python"</strong>, HCL, 2022</li>
+      <li><strong>"ML with TensorFlow"</strong>, HCL, 2022</li>
+      <li><strong>"Web of Things"</strong>, developed 1/5 units for single-credit value added course "Web and Data Management for Internet of Things", SSNCE, 2021</li>
+      <li><strong>"Microservices"</strong>, UG Elective, SSNCE, 2021</li>
+      <li><strong>"Full Stack Web Development"</strong>, UG Elective, SSNCE, 2021</li>
+      <li><strong>"Web Programming"</strong>, core EFP Course for UG, SSNCE, 2021</li>
+      <li><strong>"Containers and Orchestration"</strong>, UG Open Elective, SSNCE, 2021</li>
+      <li><strong>"Web Assembly"</strong>, UG Elective, SSNCE, 2021</li>
+      <li><strong>"UX Design"</strong>, UG Elective, SSNCE, 2021</li>
+      <li><strong>"Web Services and DevOps"</strong>, with Lab Component, UG Elective, SSNCE, 2021</li>
+      <li><strong>"Advanced Web Technologies"</strong>, PG Core Course, SSNCE, 2018</li>
+      <li><strong>"Web Programming"</strong>, UG Core Course, SSNCE, 2018</li>
+      <li><strong>"Web Programming Lab"</strong>, UG Core Course, SSNCE, 2018</li>
+      <li><strong>"Reactive Programming"</strong>, UG Elective Course, SSNCE, 2018</li>
+      <li><strong>"Introduction to Programming: Java/Python"</strong>, SSN Professional Development Program, Reddington CSR Initiative, March&ndash;June 2017</li>
+      <li><strong>"Java", "Python", "C#", JavaScript &amp; "Programming Concepts"</strong> for HCL Pre-Bridge and Bridge Programmes, 2017</li>
+      <li><strong>"Java", "Internet of Things", "Python", &amp; "DBA"</strong> for the HCL Project 22 Foundation Programme, March 2016</li>
+    </ol>
+
+    <h3 class="sub-title">Corporate Job Descriptions Designs</h3>
+    <ol class="compact-list">
+      <li>Trainer &ndash; <strong>"Embedded &amp; IoT"</strong>, HCL, 2022</li>
+      <li>CTE &ndash; <strong>"Python for Data Science"</strong>, HCL, 2022</li>
+      <li>Intern &ndash; <strong>"Python/Java/JS"</strong>, HCL, 2022</li>
+    </ol>
+
+    <h3 class="sub-title">Corporate Job Packs Designs</h3>
+    <ol class="compact-list">
+      <li><strong>"Embedded &amp; IoT Developer"</strong>, HCL, 2022</li>
+      <li><strong>"Embedded &amp; IoT Tester"</strong>, HCL, 2022</li>
+      <li><strong>"VLSI Designer"</strong>, HCL, 2022</li>
+    </ol>
+
+    <h3 class="sub-title">ILT/SDL Decks / Assessments / Assignments / Quizzes</h3>
+    <ol class="compact-list">
+      <li><strong>"Embedded &amp; Automotive"</strong>, HCL, D4X, YRSK, VAct, Robert Bosch, 2022&ndash;23</li>
+    </ol>
+
+    <h3 class="sub-title">Video Recordings</h3>
+    <ol class="compact-list">
+      <li>Prisma Webinar</li>
+      <li>Git &amp; Github Workshop</li>
+      <li>DevOps</li>
+      <li>Git</li>
+      <li>Web Animation with CSS</li>
+      <li>Flutter</li>
+      <li>DBMS</li>
+      <li>Node</li>
+      <li>Arduino</li>
+      <li>OTR, Personal</li>
+      <li>Kubernetes</li>
+      <li>PWAs</li>
+      <li>Web Performance</li>
+      <li>Pointers and Arrays in C</li>
+      <li>Structures in C</li>
+      <li>FullStack</li>
+      <li>SPA using Angular</li>
+      <li>Command Line Interface in C</li>
+      <li>File Handling in C</li>
+      <li>Advanced Databases and Security</li>
+      <li>Problem Solving and Programming in Python</li>
+      <li>Functional Style Programming using JS</li>
+    </ol>
+
+    <h3 class="sub-title">Value Added Courses</h3>
+    <ol class="compact-list">
+      <li><strong>One Credit Course &ndash; "Intelligent Mobility: Applied Computer Vision and Deep Learning"</strong>, Course Instructor: Dr. Vijay John, Research Scientist @ RIKEN Institute Japan, Course Co-ordinators: Dr. E.M. Malathy, Dr. R. Vinob Chander, 2021 Odd Semester, SSN College of Engineering</li>
+    </ol>
+  </section>
+
+  <!-- WORKSHOPS / FDPs / CONFERENCES / SEMINARS -->
+  <section id="workshops">
+    <h2 class="section-title">Workshops, FDPs, Conferences &amp; Seminars</h2>
+    <ol class="compact-list">
+      <li><strong>Summit and Expo: AutoEV</strong>, Nov. 2&ndash;4, 2023, KTPO, Whitefield, Bengaluru</li>
+      <li><strong>Stand Up Training(21)</strong> &ndash; "Exception Handling in Java", HCL, June 2022</li>
+      <li><strong>Resource Person(20)</strong> for the FDP on "IoT with Arduino", SSNCE, Chennai, April 23, 2022</li>
+      <li><strong>Guest Lecture(19)</strong> &ndash; Python for data science presentation and hands-on, Feb 16, 2022, HCL TSS</li>
+      <li><strong>Resource person (18) &ndash; Workshop</strong> &ndash; "Introduction to Microservices", 23rd Feb. 2022, ONE-DAY ICCCSP 2022 CO-LOCATED WORKSHOP ON MICROSERVICES AND INTERNET OF THINGS (MIOT), Dept. of IT, SSN College of Engineering</li>
+      <li><strong>Resource person (17) &ndash; Webinar</strong> &ndash; "Using Prisma for Node TypeScript Projects", 30th October 2021, Dept. of IT, SSN College of Engineering</li>
+      <li><strong>7. Next.js Conf.</strong> 2021 &ndash; Oct. 26, 2021</li>
+      <li>Virtual Connext Con 2021! &ndash; October 19&ndash;20, 2021</li>
+      <li>WebCast &ndash; "COM-HPC: BRINGING DATA CENTER COMPUTE INTO THE FOG" Oct 13, 2021</li>
+      <li>"InstructureCon Online Sydney 2021" &ndash; October 7, 2021</li>
+      <li>WebCast &ndash; "DEPLOYING THE SOSA TECHNICAL STANDARD: BENEFITS &amp; CHALLENGES", Sep 30, 2021</li>
+      <li><strong>Resource person (16) &ndash; Workshop</strong> &ndash; "SCM with Git and GitHub", 24&ndash;25 September 2021, Dept. of IT, SSN College of Engineering</li>
+      <li>"CBCS based course registration App." &ndash; Submitted/Participated &ndash; saai-factory-hackathon-on-art-and-ai, Aug. 2021</li>
+      <li><strong>Resource person (15)</strong> &ndash; A technical Webinar on "Full Stack development with JavaScript", 27th August 2021, Dept. of IT, St. Joseph's Institute of Technology</li>
+      <li><strong>Resource person (14) &ndash; Workshop</strong> &ndash; "Mobile Application Development with Flutter", 16&ndash;17 August 2021, Dept. of IT, SSN College of Engineering</li>
+      <li><strong>Resource Person (13) and organizer</strong> &ndash; "e-sessions on Functional Style with JS", May 18th, 2020, SSN College of Engineering, Chennai</li>
+      <li><strong>Session speaker (12)</strong> on "Introduction to Kubernetes", 3rd July 2019, Navis, Chennai</li>
+      <li><strong>Conference &ndash; "ERPNext 2019"</strong>, Oct 17 &amp; 18, 2019, Matunga, Mumbai</li>
+      <li><strong>Workshop &ndash; "Devops Tool" (Hands on Training)</strong>, March 8 &amp; 9, 2019, SREC, Coimbatore</li>
+      <li><strong>FDP &ndash; "Recent Trends In Optimization"</strong>, Dec. 6&ndash;8, 2018, Dept. of Mech. Engg., SRMIST</li>
+      <li><strong>Seminar &ndash; National Instruments</strong>, "Implementing the Industrial IoT", April 3, 2018, Hotel Radisson Blu, Chennai</li>
+      <li><strong>Resource Person (11)</strong> &ndash; Five days promotional program, "Programming with Python", Feb 22, 2018, Gandhigram, TamilNadu</li>
+      <li><strong>Syllabus Revision</strong> &ndash; Revised syllabus for "Problem Solving and Programming", "Service Oriented Architecture", and "Web Development Frameworks", Feb 19, 2018, SSNCE, Chennai</li>
+      <li><strong>Resource person (10)</strong> &ndash; awareness talk on IoT Career path, Feb. 16, 2018, IEEE WIE, Dept. of IT, SSNCE, Chennai</li>
+      <li><strong>Seminar &ndash; Aforeserve, Sapphire, &amp; Lintas Infosystems</strong> on Prism of Possibilities, Business Agility, and Business Process Automation, Sep 15, 2017, Accord Metropolitan, Chennai</li>
+      <li><strong>Seminar &ndash; HPE, USAM technology event on Hyperconvergence</strong>, Jan 24, 2018, Crowne Plaza Adayar Gate, Alwarpet, Chennai</li>
+      <li><strong>Resource person (9)</strong> for the FDP on "Python &ndash; Hands on Session", Nov. 25, 2017, Saveetha School of Engineering, Saveetha University, Chennai</li>
+      <li><strong>Conclave &ndash; "Professional Development in Business Analytics"</strong>, Aug. 10&ndash;11, 2017, SACE, Chennai</li>
+      <li><strong>Hackathon &ndash; "Smart India Hackathon 2017"</strong>, Mentor for team Tricoders, Ministry of Civil Aviation, Allahabad, April 1&ndash;2, 2017</li>
+      <li><strong>Seminar &ndash; "Mobile Phones and Cyber Security"</strong>, Dec 26, 2016, FICCI, E-Hotel, Express Avenue, Chennai</li>
+      <li><strong>Resource person(8) for the two day workshop</strong> &ndash; "Python Programming: Hands-on &amp; Programming Contest", Feb 24&ndash;25, 2016, SSNCE Chennai</li>
+      <li><strong>Organizer and Resource person(7)</strong> for the Workshop &ndash; "The Internet of Things: Hands-on with Raspberry Pi", March 22&ndash;23, 2016, SSNCE, Chennai</li>
+      <li>"Expo_cum_Conference", EFY Expo, Jan 11&ndash;13, 2016, BIEC Bangalore</li>
+      <li>"Hackathon 2015", Pragyan, NIT Trichy &amp; Microsoft, 12&ndash;13 Dec 2015</li>
+      <li>"Hackathon" &ndash; Great Indian HP Code Off @ GIDS 2015, IISC Bangalore</li>
+      <li><strong>Workshop &ndash; "Leveraging Use Cases to Validate IoT Opportunities: India and its Unique Landscape"</strong>, IEEE Bangalore Section, 4&ndash;5 Dec 2015</li>
+      <li><strong>Workshop &ndash; "Big Data Tools"</strong>, MIT Campus, Anna University, Chennai, 11&ndash;13 June 2015</li>
+      <li><strong>Workshop &ndash; "Knowledge++"</strong>, L&amp;T Infotech, Campus Springboard, 11&ndash;13 June 2015</li>
+      <li><strong>FDP &ndash; "Behaviour Management"</strong>, Dec. 22&ndash;23, 2014, SSN</li>
+      <li><strong>Guest Lecture (6) for a FDTP on Computer Networks</strong>, Jeppiar Engg. College, Chennai, 2014</li>
+      <li><strong>Research Talk (5) on "Internet of Things with Contiki"</strong>, SVCE Chennai, 11.10.2014</li>
+      <li><strong>Presentation (4) on Core Interfaces</strong>, IIT Madras, 27.1.2013</li>
+      <li><strong>Presentation (3) on Physical Mashups for the Web of Things</strong>, IIT Madras, 27.1.2013</li>
+      <li><strong>Workshop &ndash; "Large scale Machine Learning"</strong>, Ericson Research &amp; SVCE Chennai, Nov 13&ndash;14, 2013</li>
+      <li><strong>Conference &ndash; "Advanced Computing and Communications Conference"</strong>, Hindustan University, Chennai, Oct 21&ndash;25, 2013</li>
+      <li>47th International Conference on Technologies &amp; IEEE, Bangalore, Aug 24&ndash;28, 2013</li>
+      <li><strong>Workshop &ndash; "6LoWApp"</strong> &ndash; building IPv6 enabled wireless sensor networks applications, ERNET India, IISC Bangalore, Oct 20, 2012</li>
+      <li><strong>FDP &ndash; "Service Oriented Architecture"</strong>, Cognizant, Chennai, Feb 10, 2012</li>
+      <li><strong>FDP &ndash; "REST Architectural Style and Advanced Java Script"</strong>, Cognizant, Chennai, Apr 20, 2012</li>
+      <li><strong>SDP &ndash; "Web Services"</strong>, Dept. of IT, Sri Sai Ram Engineering College, Nov 2&ndash;3, 2011</li>
+      <li><strong>Resource person (2) for the workshop on Middleware Technologies</strong> for faculties of Engineering colleges under JNTUH, Padmasri Dr. B.V. Raju Institute of Technology, Hyderabad, AP, 6&ndash;7 Dec 2010</li>
+      <li><strong>Expert (1) Lectures on Multimedia and Application Development</strong> for final year IT students of Sarada College of Engineering, Hyderabad, AP, Aug 1 &ndash; Sep 30, 2010</li>
+      <li><strong>Workshop &ndash; "Object Oriented Analysis and Design using UML with Fundamentals of Rational Rose"</strong>, IBM, Hyderabad, Nov 26&ndash;28, 2008</li>
+      <li><strong>Workshop &ndash; "Neural Networks and Fuzzy Logic"</strong>, SNIST, Hyderabad, Jun 16&ndash;21, 2008</li>
+      <li>"Adobe Academic Summit", Hyderabad, Aug 12, 2008</li>
+      <li><strong>FDP &ndash; "Theory of Computation"</strong>, PSG Tech, Coimbatore, May 15&ndash;27, 2006</li>
+      <li><strong>Workshop &ndash; "Pervasive Computing"</strong>, KCT, Coimbatore, May 10, 2005</li>
+      <li><strong>FDP &ndash; "IBM Technology Update Programme"</strong>, CIT, Coimbatore, Oct. 8, 2004</li>
+    </ol>
+
+    <h3 class="sub-title">Developer Conferences</h3>
+    <ol class="compact-list">
+      <li>"Great Indian Developer Summit" &ndash; a Saltmarch Media (multiple editions)</li>
+      <li>"India Electronics Week" &ndash; 11&ndash;13 Jan 2016, Bangalore</li>
+      <li>"Sun Tech Days", HICC, Hyderabad, Mar 24&ndash;25, 2010</li>
+      <li>"Sun Tech Days", HICC, Hyderabad, Feb 18&ndash;20, 2009</li>
+      <li>"Sun Tech Days", HICC, Hyderabad, 2008</li>
+      <li>"Sun Tech Days", IISC, Bangalore, 2005</li>
+    </ol>
+  </section>
+
+  <!-- OTHER RESPONSIBILITIES -->
+  <section>
+    <h2 class="section-title">Other Responsibilities</h2>
+    <ol class="compact-list">
+      <li>Development Officer, Multi- &amp; InterDisciplinary Education</li>
+      <li>ERP Lead</li>
+      <li>TP1, TP2 Interviewer</li>
+      <li>Developer</li>
+      <li>ISO Internal Auditor</li>
+      <li>Open Book Assessments In Charge</li>
+      <li>NBA Co-Ordinator</li>
+      <li>Lab In Charge</li>
+      <li>Value Added Course Co-Ordinator</li>
+      <li>Disciplinary Committee Member</li>
+    </ol>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <h2 class="section-title">Certifications</h2>
+    <ol class="compact-list">
+      <li><strong>Diploma in UNIX</strong>, BDPS Software LIMITED, Nov., 1999</li>
+      <li><strong>"M101JS: MongoDB for Node.js Developers"</strong>, MongoDB University, Mar. 2014, 95%, top 8% of all students</li>
+      <li>Online Training Program, <strong>"ISO 9001:2015 Quality Management System Internal Auditor Course"</strong>, Certificate No. 8119005664/10, February 2021</li>
+      <li><strong>LinkedIn Certifications: 20+</strong></li>
+    </ol>
+    <h3 class="sub-title">LinkedIn Certifications Breakdown</h3>
+    <ul class="bullet-list">
+      <li><strong>2022:</strong> Vue.js Documentary, Introduction to Linux, IoT Foundations, Machine Learning with Python, Microservices Foundations, NoSQL Training, RPA Automation Anywhere, Statistics Foundations 1, Tech Trends</li>
+      <li><strong>2021:</strong> C Essential Training, Cross-Platform Development Tool, Express Essential Training, Flutter Building Apps, Git Essential Training, Learning Git and GitHub, Microsoft Teams Custom Apps, Python Data Structures, React Cloud-Powered Apps</li>
+      <li><strong>2020:</strong> Building Websites with Node.js and Express.js, Learning Moodle 3.9, WordPress 5 Essential Training and Site Administration, Customizing WooCommerce Themes, Developing Secure Sites, Ecommerce with Easy Digital Downloads</li>
+    </ul>
+  </section>
+
+  <!-- AWARDS & ACHIEVEMENTS -->
+  <section id="awards">
+    <h2 class="section-title">Awards, Achievements &amp; Participations</h2>
+    <ul class="detail-list">
+      <li>
+        <span class="item-name">Holistic Webdev Challenge Winner</span><br>
+        <span class="item-detail">DEV Community &mdash; PulseHub Intranet (Frontend Challenge, Office Edition)</span>
+      </li>
+      <li>
+        <span class="item-name">Winner (Round Trip Tickets to the USA) &ndash; Great Indian HP Code Off</span><br>
+        <span class="item-detail">GIDS 2015, IISC Bangalore</span>
+      </li>
+      <li>
+        <span class="item-name">Best Paper Award</span><br>
+        <span class="item-detail">"Web Services Computing &ndash; Glassfish's Future in the Vendor's Battlefield", Pentagram Research Centre, Hyderabad, Jan 2&ndash;5, 2008</span>
+      </li>
+      <li>
+        <span class="item-name">Certificate of Merit</span><br>
+        <span class="item-detail">"Novel Ubiquitous Interoperable context-aware Smart Environments through Web Services", 14&ndash;16 Mar 2012, Hong Kong</span>
+      </li>
+      <li>
+        <span class="item-name">Session Chair</span><br>
+        <span class="item-detail">2012 IAENG International Conference on Internet Computing and Web Services, Hong Kong, 16 Mar 2012</span>
+      </li>
+      <li>
+        <span class="item-name">2nd Runner Up &ndash; "TCS &ndash; SSN SACE Data Challenge"</span><br>
+        <span class="item-detail">Conclave on Professional Development in Business Analytics, SSN SACE, Chennai, Aug. 10 &amp; 11, 2017</span>
+      </li>
+      <li>
+        <span class="item-name">MongoDB M101JS &ndash; Top 8% Performer</span><br>
+        <span class="item-detail">MongoDB University, 95% grade, Mar 5, 2014</span>
+      </li>
+      <li>
+        <span class="item-name">Course Syllabus Developer</span><br>
+        <span class="item-detail">~12 subjects @ SSN, 2021</span>
+      </li>
+      <li>
+        <span class="item-name">Reviewer(4)</span><br>
+        <span class="item-detail">Journal of Computational Methods in Sciences and Engineering (JCMSE), IOS Press</span>
+      </li>
+      <li>
+        <span class="item-name">Reviewer(3)</span><br>
+        <span class="item-detail">Paper submitted to RSC'21, via EasyChair, Oct 30, 2021</span>
+      </li>
+      <li>
+        <span class="item-name">Reviewer(2)</span><br>
+        <span class="item-detail">IEEE conference on Computer, Communications, and Signal Processing (2018)</span>
+      </li>
+      <li>
+        <span class="item-name">Reviewer(1)</span><br>
+        <span class="item-detail">IEEE conference on Computer, Communications, and Signal Processing (2017)</span>
+      </li>
+      <li>
+        <span class="item-name">Coordinators</span><br>
+        <span class="item-detail">(E.M. Malathy &amp; R. Vinob Chander) &ndash; Single Credit Course "Intelligent Mobility: Applied Computer Vision and Deep Learning", @ SSN, AY 2020&ndash;2021</span>
+      </li>
+      <li>
+        <span class="item-name">Course developer and Instructor</span><br>
+        <span class="item-detail">"DevOps" &amp; "Advanced Web Technologies", 4 SSN Autonomous</span>
+      </li>
+      <li>
+        <span class="item-name">External Examiner</span><br>
+        <span class="item-detail">CS01801-Python Programming Essentials Lab, Dept of CSE, Saveetha University, Chennai, March 8, 2018</span>
+      </li>
+      <li>
+        <span class="item-name">Mentor &ndash; Smart India Hackathon</span><br>
+        <span class="item-detail">Team "Tricoders", Ministry of Civil Aviation, Allahabad, India, April 1&ndash;2, 2017</span>
+      </li>
+      <li>
+        <span class="item-name">Mentor</span><br>
+        <span class="item-detail">HCL Project 22 Foundation Programme, Lucknow, March 9&ndash;19, 2016, SMS College, Lucknow</span>
+      </li>
+      <li>
+        <span class="item-name">Organizing committee member</span><br>
+        <span class="item-detail">ICBDDA conference</span>
+      </li>
+      <li>
+        <span class="item-name">Developer and Maintainer</span><br>
+        <span class="item-detail">SSN Institution's ex-"ERP" using FOSS</span>
+      </li>
+      <li>
+        <span class="item-name">"Great Escapes 2019, Chennai"</span><br>
+        <span class="item-detail">Personal, Participated, Feb 2, 2019</span>
+      </li>
+      <li>
+        <span class="item-name">"InfyTQ 2019"</span><br>
+        <span class="item-detail">Infosys, Mysuru, Participated &amp; represented SSN College of Engineering, Feb 14&ndash;16, 2019</span>
+      </li>
+      <li>
+        <span class="item-name">25 repos in Git</span><br>
+        <span class="item-detail">github.com/vinobc</span>
+      </li>
+      <li>
+        <span class="item-name">Designed, developed, and deployed a secure dynamic web site</span><br>
+        <span class="item-detail">For an authorized dealer of Ashok Leyland using FOSS, Oct. 5 &ndash; Oct. 23, 2020</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- RESEARCH LINKS -->
+  <section>
+    <h2 class="section-title">Research Links</h2>
+    <div class="tags" style="gap:0.8rem;">
+      <a href="https://orcid.org/0000-0003-2377-9304" target="_blank" rel="noopener" class="tag tag-link" style="padding:0.5rem 1rem; font-size:0.88rem;">ORCID: 0000-0003-2377-9304</a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=55608038000" target="_blank" rel="noopener" class="tag tag-link" style="padding:0.5rem 1rem; font-size:0.88rem;">Scopus ID: 55608038000</a>
+      <a href="https://www.webofscience.com/wos/author/record/ABC-3679-2021" target="_blank" rel="noopener" class="tag tag-link" style="padding:0.5rem 1rem; font-size:0.88rem;">Web of Science ID: ABC-3679-2021</a>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIPS -->
+  <section>
+    <h2 class="section-title">Professional Memberships</h2>
+    <div class="tags" style="gap:0.8rem;">
+      <span class="tag" style="padding:0.5rem 1rem; font-size:0.88rem;">ISTE &mdash; Life Member (LM-54630)</span>
+      <span class="tag" style="padding:0.5rem 1rem; font-size:0.88rem;">IETE &mdash; Life Member (M-198888)</span>
+      <span class="tag" style="padding:0.5rem 1rem; font-size:0.88rem;">IAENG &mdash; Member (361319)</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Dr. Vinob Chander R &nbsp;&middot;&nbsp;
+    <a href="mailto:vinobchanderr@gmail.com">vinobchanderr@gmail.com</a> &nbsp;&middot;&nbsp;
+    <a href="https://www.linkedin.com/in/vinobchander/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;&middot;&nbsp;
+    <a href="https://github.com/vinobc" target="_blank" rel="noopener">GitHub</a> &nbsp;&middot;&nbsp;
+    <a href="https://smartlylearn.in/" target="_blank" rel="noopener">smartlylearn.in</a>
+  </p>
+</footer>
+
+</body>
+</html>
